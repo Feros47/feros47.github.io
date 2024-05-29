@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/feros47.github.io/static/css/main.bdd15d62.css",
-    "main.js": "/feros47.github.io/static/js/main.f9b01540.js",
-    "static/media/giphy.gif": "/feros47.github.io/static/media/giphy.5fe89aa1827a6bf671e1.gif",
-    "static/media/Mig.jpg": "/feros47.github.io/static/media/Mig.fd87769c2a9ceb740d81.jpg",
-    "index.html": "/feros47.github.io/index.html",
-    "main.bdd15d62.css.map": "/feros47.github.io/static/css/main.bdd15d62.css.map",
-    "main.f9b01540.js.map": "/feros47.github.io/static/js/main.f9b01540.js.map"
+    "main.css": "/static/css/main.bdd15d62.css",
+    "main.js": "/static/js/main.110b667b.js",
+    "static/media/giphy.gif": "/static/media/giphy.5fe89aa1827a6bf671e1.gif",
+    "static/media/Mig.jpg": "/static/media/Mig.fd87769c2a9ceb740d81.jpg",
+    "index.html": "/index.html",
+    "main.bdd15d62.css.map": "/static/css/main.bdd15d62.css.map",
+    "main.110b667b.js.map": "/static/js/main.110b667b.js.map"
   },
   "entrypoints": [
     "static/css/main.bdd15d62.css",
-    "static/js/main.f9b01540.js"
+    "static/js/main.110b667b.js"
   ]
 }
