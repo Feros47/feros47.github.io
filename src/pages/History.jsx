@@ -12,8 +12,8 @@ const Wave = () => (
   >
     <defs>
       <linearGradient id='gradient' x1='0%' y1='50%' x2='100%' y2='50%'>
-        <stop offset='5%' stop-color='#FFE5B4'></stop>
-        <stop offset='95%' stop-color='#FFD700'></stop>
+        <stop offset='5%' stop-color='#2E1E62'></stop>
+        <stop offset='95%' stop-color='#2E1E62'></stop>
       </linearGradient>
     </defs>
     <path
@@ -25,8 +25,8 @@ const Wave = () => (
     ></path>
     <defs>
       <linearGradient id='gradient' x1='0%' y1='50%' x2='100%' y2='50%'>
-        <stop offset='5%' stop-color='#FFE5B4'></stop>
-        <stop offset='95%' stop-color='#FF7F50'></stop>
+        <stop offset='5%' stop-color='#2E1E62'></stop>
+        <stop offset='95%' stop-color='#2E1E62'></stop>
       </linearGradient>
     </defs>
     <path
@@ -67,7 +67,7 @@ const MyHistory = () => {
           ></path>
         </svg>
       </div>
-      <div className='absolute top-0 w-full opacity-50 -z-10'>
+      <div className='absolute top-0 w-full opacity-70 -z-10'>
         <Wave />
       </div>
       <div className='absolute w-full h-full bg-white -z-20' />
@@ -108,7 +108,7 @@ const MyHistory = () => {
               </span>
             </span>
             <h1 className='mx-auto mt-5 md:ml-0 font-lg italic font-bold text-indigo-400'>
-              22 ~
+              23 ~
             </h1>
           </button>
         </div>
@@ -120,18 +120,17 @@ const MyHistory = () => {
               <span className='flex items-center md:space-x-5'>
                 <AcademicCapIcon className='min-w-max h-6 w-6 text-pink-600 hidden md:flex -rotate-6' />
                 <span className='text-gray-100 pr-6 group-hover:scale-105 transition duration-200'>
-                  Sabbatår
+                  Gymnasiet
                 </span>
               </span>
               <span className='text-indigo-400 pl-6 group-hover:text-gray-100 group-hover:scale-105 transition duration-200 leading-5 text-sm text-left'>
-                Jeg blev student og var nu færdig med gymnasiet. Nu skulle der
-                laves og øves på en masse projekter, et af de store projekter
-                jeg begav mig ud på var et kostplan projekt der benyttede sig af
-                React som frontend, og Java (Spring Boot) som backend.
+                I 2023 blev jeg student og var nu færdig med gymnasiet. Herefter
+                var jeg helt klar på at starte direkte på universitet, og virkeligt få
+                erfaring inden for softwareudvikling.
               </span>
             </span>
             <h1 className='mx-auto mt-5 md:ml-0 font-lg italic font-bold text-indigo-400'>
-              21 ~ 22
+              20 - 23
             </h1>
           </button>
         </div>
@@ -147,13 +146,12 @@ const MyHistory = () => {
                 </span>
               </span>
               <span className='text-indigo-400 pl-6 group-hover:text-gray-100 group-hover:scale-105 transition duration-200 leading-5 text-sm text-left'>
-                Begyndte at udvikle plugins indenfor Spigot API. Det gav mig
-                blod på tanden, og gjorde at jeg blev fuldstændig bidt af
-                programmering i Java.
+                Begyndte at udvikle små Unity spil, og lærte mig selv at kode i
+                C#. Dette var starten på min interesse for softwareudvikling.
               </span>
             </span>
             <h1 className='mx-auto mt-5 md:ml-0 font-lg italic font-bold text-indigo-400'>
-              15 - 21
+              22 - 23
             </h1>
           </button>
         </div>
