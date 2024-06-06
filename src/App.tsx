@@ -4,6 +4,9 @@ import Section2 from './pages/Section2';
 import History from './pages/History';
 import MyProjects from './pages/Projects';
 
+
+
+
 function App() {
   const aboutSection = useRef<HTMLDivElement>(null);
   return (

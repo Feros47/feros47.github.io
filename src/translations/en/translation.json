@@ -1,0 +1,45 @@
+{
+    "section1": {
+      "welcome": "Welcome, my name is",
+      "title": "Niklas Marcussen",
+      "description": "Computer Science student at the University of Copenhagen",
+      "changeLanguage": "For Dansk, tryk på globussen oppe i højre hjørne",
+      "linkedinUrl": "https://www.linkedin.com/in/niklas-marcussen-232391299/",
+      "buttonText": "Contact Me",
+      "scrollDownText": "Scroll down"
+    },
+    "section2": {
+      "header": "My Name is",
+      "name": "Niklas",
+      "ageDescription": "I am 19 years old. I have always been very interested in technology and how software works. In my second year of high school, I picked up programming and started coding games in Unity, and then various small projects for my own use. This has led to my current love for programming, problem-solving, and being creative.",
+      "icons": "🏐 / 🏋️ / ⛳ / ✍️",
+      "hobbiesDescription": "In my free time, I play and coach volleyball, work out at the gym, and play golf. I also love being creative by writing poetry."
+    },
+    "history": {
+      "header": "My Story",
+      "title": "History and Experience",
+      "bsc": "Current student in the Computer Science program at University of Copenhagen. Pursuing my dream of becoming a software developer.",
+      "higschool": "High School",
+      "highschoolDescription": "In 2023, I graduated from high school. After that, I was ready to start university immediately and really gain experience in software development.",
+      "selftaught": "Self-taught",
+      "selftaughtDescription": "Started developing small Unity games and taught myself to code in C#. This was the beginning of my interest in software development."
+    },
+    "projects": {
+      "header": "My Projects",
+      "title": "Projects",
+      "information": "Information about all projects can be found on GitHub",
+      "buttonTextUploaded": "View Project Repository",
+      "buttonTextComingSoon": "Coming Soon!",
+      "project1": {
+        "name": "FastPost",
+        "description": "FastPost is a python script that can automatically post instagram reels and youtube shorts."
+      },
+      "project2": {
+        "name": "ChessBruh",
+        "description": "The project is under development and therefore not available yet, unfortunately! Expected release date: Soon"
+      },
+      "moreProjectsHeader": "More Projects available through the link below",
+      "moreProjectsButtonText": "My Github",
+      "githubProfileLink": "https://github.com/feros47"
+    }
+  }

@@ -1,5 +1,5 @@
-import React from 'react';
 import { AcademicCapIcon, BookmarkAltIcon } from '@heroicons/react/solid';
+import { useTranslation } from 'react-i18next';
 
 const Wave = () => (
   <svg
@@ -46,6 +46,9 @@ const Wave = () => (
 );
 
 const MyHistory = () => {
+  
+  const { t } = useTranslation();
+
   return (
     <div className='relative h-fit'>
       <div>
@@ -80,12 +83,12 @@ const MyHistory = () => {
                   className='text-sm font-black uppercase text-center text-gray-900'
                   style={{ letterSpacing: '0.35em' }}
                 >
-                  🖥 min historie ⌨️
+                  🖥 {t("history.header")} ⌨️
                 </span>
               </div>
             </div>
-            <h1 className='text-center text-[48px] font-black mb-4 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-pink-600 '>
-              Historie og erfaring
+            <h1 className='text-center text-[47px] font-black mb-10 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-pink-600'>
+              {t("history.title")}
             </h1>
           </div>
         </div>
@@ -103,12 +106,11 @@ const MyHistory = () => {
                 </span>
               </span>
               <span className='text-indigo-400 pl-6 group-hover:text-gray-100 group-hover:scale-105 transition duration-200 leading-5 text-sm text-left'>
-                Nuværende studerende på Datalogi uddannelsen på København
-                Universitet. Og udlever min drøm om at blive softwareudvikler.
+                {t("history.bsc")}
               </span>
             </span>
             <h1 className='mx-auto mt-5 md:ml-0 font-lg italic font-bold text-indigo-400'>
-              23 ~
+              2023 ~
             </h1>
           </button>
         </div>
@@ -120,17 +122,15 @@ const MyHistory = () => {
               <span className='flex items-center md:space-x-5'>
                 <AcademicCapIcon className='min-w-max h-6 w-6 text-pink-600 hidden md:flex -rotate-6' />
                 <span className='text-gray-100 pr-6 group-hover:scale-105 transition duration-200'>
-                  Gymnasiet
+                  {t("history.higschool")}
                 </span>
               </span>
               <span className='text-indigo-400 pl-6 group-hover:text-gray-100 group-hover:scale-105 transition duration-200 leading-5 text-sm text-left'>
-                I 2023 blev jeg student og var nu færdig med gymnasiet. Herefter
-                var jeg helt klar på at starte direkte på universitet, og virkeligt få
-                erfaring inden for softwareudvikling.
+                {t("history.highschoolDescription")}
               </span>
             </span>
             <h1 className='mx-auto mt-5 md:ml-0 font-lg italic font-bold text-indigo-400'>
-              20 - 23
+              2020 - 2023
             </h1>
           </button>
         </div>
@@ -142,16 +142,15 @@ const MyHistory = () => {
               <span className='flex items-center md:space-x-5'>
                 <BookmarkAltIcon className='min-w-max h-6 w-6 text-pink-600 hidden md:flex -rotate-6' />
                 <span className='text-gray-100 pr-6 group-hover:scale-105 transition duration-200'>
-                  Autodidakt
+                  {t("history.selftaught")}
                 </span>
               </span>
               <span className='text-indigo-400 pl-6 group-hover:text-gray-100 group-hover:scale-105 transition duration-200 leading-5 text-sm text-left'>
-                Begyndte at udvikle små Unity spil, og lærte mig selv at kode i
-                C#. Dette var starten på min interesse for softwareudvikling.
+                {t("history.selftaughtDescription")}
               </span>
             </span>
             <h1 className='mx-auto mt-5 md:ml-0 font-lg italic font-bold text-indigo-400'>
-              22 - 23
+              2022 - 2023 
             </h1>
           </button>
         </div>
