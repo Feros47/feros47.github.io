@@ -8,7 +8,7 @@ const Section1 = forwardRef<HTMLDivElement>((props, ref) => {
       <div className='absolute w-full h-full bg-white inset-0 -z-20 ' />
       <img
         src={require('../assets/giphy.gif')}
-        className='absolute bottom-0 w-full -z-10'
+        className='absolute inset-0 w-full h-full object-cover -z-10'
       />
       <section className='h-full overflow-hidden flex justify-center items-center'>
         <div className='mx-auto px-5 sm:w-11/12 xl:w-3/4 2xl:w-2/3 py-12 xl:py-20'>
