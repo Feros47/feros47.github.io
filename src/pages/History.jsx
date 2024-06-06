@@ -90,7 +90,7 @@ const MyHistory = () => {
           </div>
         </div>
       </section>
-      <div className='relative mx-auto px-5 sm:w-11/12 xl:w-3/4 2xl:w-2/3 py-12 lg:py-20 flex flex-col space-y-14 md:space-y-10 flex-no-wrap items-start border-b-2 border-gray-600'>
+      <div className='relative mx-auto px-5 sm:w-11/12 xl:w-3/4 2xl:w-2/3 py-12 lg:py-20 flex flex-col space-y-14 md:space-y-10 flex-no-wrap'>
         <div className='relative group ml-auto w-full lg:w-1/2'>
           <div className='absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200' />
           <button className='relative px-7 py-4 bg-black rounded-lg leading-none flex flex-col justify-center'>
