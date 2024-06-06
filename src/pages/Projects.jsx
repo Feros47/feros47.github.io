@@ -39,7 +39,7 @@ export default function MyProjects() {
               </span>
             </span>
             <span className='text-indigo-400 pl-6 group-hover:text-gray-100 group-hover:scale-105 transition duration-200 leading-5 text-sm text-left'>
-              FastPost er et python script, der automatisk kan pose instagram reels og youtube shorts.
+              FastPost er et python script, der automatisk kan poste instagram reels og youtube shorts.
               <div className='flex items-center justify-center'>
                 <a 
                   href='https://github.com/Feros47/FastPost'
