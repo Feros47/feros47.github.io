@@ -38,13 +38,13 @@ const Section1 = forwardRef<HTMLDivElement>((props, ref) => {
               </span>
             </div>
 
-            <h1 className='text-center text-[48px] font-black mb-4 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-pink-600 '>
+            <h1 className='text-center text-[48px] font-black pb-1 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-pink-600 '>
               {t("section1.title")}
             </h1>
             <p className='text-lg sm:text-xl text-center leading-7 sm:leading-8 text-gray-700'>
               {t("section1.description")}
             </p>
-            <p className='text-lg sm:text-xl text-center leading-7 sm:leading-8 text-gray-700'>
+            <p className='text-lg sm:text-xl text-center leading-7 sm:leading-8 text-gray-700 pt-9'>
               {t("section1.changeLanguage")}
             </p>
             <div className='flex justify-center items-center flex-col sm:flex-row mt-6'>
