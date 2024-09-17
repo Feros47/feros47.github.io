@@ -57,12 +57,12 @@ const MyProjects = () => {
                 {row.map((project, index) => (
                   <div key={project.id} className={`relative group w-full lg:w-1/2 ${index === 1 ? 'lg:ml-5' : ''}`}>
                     <div className='absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200' />
-                    <button className='relative px-7 py-4 bg-black rounded-lg leading-none flex flex-col justify-between h-full min-h-[200px] w-full min-w-[200px]'>
+                    <button className='relative px-7 py-4 bg-black rounded-lg leading-none flex flex-col justify-between h-1 min-h-[120px] w-full min-w-[200px]'>
                       <div className='flex flex-col justify-center flex-grow'>
                         <span className='divide-x-2 divide-gray-600 flex items-center'>
                           <span className='flex items-center md:space-x-5'>
                             <span className='text-gray-100 pr-6 group-hover:scale-105 transition duration-200'>
-                              {project.name}
+                              {project.name.slice(0, 7) + '...'}
                             </span>
                           </span>
                           <span className='text-indigo-400 pl-6 group-hover:text-gray-100 group-hover:scale-105 transition duration-200 leading-5 text-sm text-left'>
@@ -70,12 +70,12 @@ const MyProjects = () => {
                           </span>
                         </span>
                       </div>
-                      <div className='flex items-center justify-center'>
-                        <a
-                          href={project.html_url}
-                          className='border-2 border-indigo-500 rounded-lg p-3 text-white h-8 px-4 m-2 text-sm inline-flex items-center'
-                        > {t("projects.buttonTextUploaded")} </a>
-                      </div>
+                      <div className='flex pl-10'>
+                              <a
+                                href={project.html_url}
+                                className='border-2 border-indigo-500 rounded-lg ml-20 p-3 text-white h-8 px-5 mt-1 text-sm inline-flex items-center'
+                              > {t("projects.buttonTextUploaded")} </a>
+                            </div>
                     </button>
                   </div>
                 ))}
