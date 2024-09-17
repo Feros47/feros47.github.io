@@ -13,7 +13,15 @@
       "name": "Niklas",
       "ageDescription": "I am 19 years old. I have always been very interested in technology and how software works. In my second year of high school, I picked up programming and started coding games in Unity, and then various small projects for my own use. This has led to my current love for programming, problem-solving, and being creative.",
       "icons": "🏐 / 🏋️ / ⛳ / ✍️",
-      "hobbiesDescription": "In my free time, I play and coach volleyball, work out at the gym, and play golf. I also love being creative by writing poetry."
+      "hobbiesDescription1": "In my free time, I play and coach ", 
+      "hobbiesDescription2": ", work out at the ",
+      "hobbiesDescription3": " and play ",
+      "hobbiesDescription4": ". I also love being creative by writing ",
+      "poems": "poems.",
+      "volleyball": "volleyball",
+      "golf": "golf",
+      "fitness": "gym",
+      "timeline": "My Timeline"
     },
     "history": {
       "header": "My Story",
@@ -35,8 +43,8 @@
         "description": "FastPost is a python script that can automatically post instagram reels and youtube shorts."
       },
       "project2": {
-        "name": "ChessBruh",
-        "description": "The project is under development and therefore not available yet, unfortunately!"
+        "name": "Breakout",
+        "description": "Our version of the classic game of breakout, made in C#. It's been thoroughly tested and designed with design patterns in mind."
       },
       "moreProjectsHeader": "More Projects available through the link below",
       "moreProjectsButtonText": "My Github",

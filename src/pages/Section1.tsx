@@ -3,6 +3,7 @@ import React, { forwardRef, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
 
+
 const Section1 = forwardRef<HTMLDivElement>((props, ref) => {
   const { t, i18n } = useTranslation("translation");
   const handleLanguageChange = () => {

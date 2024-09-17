@@ -43,7 +43,30 @@
                 {' '}
               </p>
               <p className='text-lg sm:text-xl mb-3 text-gray-700 dark:text-gray-300'>
-                {t("section2.hobbiesDescription")}
+                {t("section2.hobbiesDescription1")}
+                <span className='text-orange-500 dark:text-orange-300 hover:underline'>
+                  <a href='/volleyball'>
+                    {t("section2.volleyball")}
+                  </a>
+                </span>
+                {t("section2.hobbiesDescription2")}
+                <span className='text-orange-500 dark:text-orange-300 hover:underline'>
+                  <a href='/fitness'>
+                    {t("section2.fitness")}
+                  </a>
+                </span>
+                {t("section2.hobbiesDescription3")}
+                <span className='text-orange-500 dark:text-orange-300 hover:underline'>
+                  <a href='/golf'>
+                    {t("section2.golf")}
+                  </a>
+                </span>
+                {t("section2.hobbiesDescription4")}
+                <span className='text-orange-500 dark:text-orange-300 hover:underline'>
+                  <a href='/poetry'>
+                    {t("section2.poems")}
+                  </a>
+                </span>
               </p>
             </div>
           </div>

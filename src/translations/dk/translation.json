@@ -5,6 +5,7 @@
       "description": "Datalogi-studerende på Københavns Universitet",
       "changeLanguage": "For English, press the globe in the top right corner",
       "linkedinUrl": "https://www.linkedin.com/in/niklas-marcussen-232391299/",
+      "aboutURL": "/about",
       "buttonText": "Kontakt Mig",
       "scrollDownText": "Rul ned"
     },
@@ -13,7 +14,15 @@
       "name": "Niklas",
       "ageDescription": "Jeg er 19 år gammel. Jeg har altid været meget interreseret i teknologi, og hvordan software fungerer. I 2.g samlede jeg programmering op, og begyndte at programmere spil i Unity, og derefter små  forskellige projekter til eget brug. Dette har ledt til at jeg den dag i dag har så meget kærlighed til programmering, problemløsningen samt at være kreativ.",
       "icons": "🏐 / 🏋️ / ⛳ / ✍️",
-      "hobbiesDescription": "I min fritid spiller og coacher jeg i volleyball, træner i fitness og spiller golf. Jeg elsker også at være kreativ i form af at skrive digte."
+      "hobbiesDescription1": "I min fritid spiller og coacher jeg i ",
+      "hobbiesDescription2": ", træner i ",
+      "hobbiesDescription3": " og spiller ",
+      "hobbiesDescription4": ". Jeg elsker også at være kreativ i form af at skrive ",
+      "poems": "digte.",
+      "volleyball": "volleyball",
+      "golf": "golf",
+      "fitness": "fitness",
+      "timeline": "Min Tidslinje"
     },
     "history": {
       "header": "Min Historie",
@@ -35,8 +44,8 @@
         "description": "FastPost er et python script, der automatisk kan poste instagram reels og youtube shorts."
       },
       "project2": {
-        "name": "ChessBruh",
-        "description": "Projektet er under udvikling og er derfor ikke tilgængeligt endnu desværre!"
+        "name": "Breakout",
+        "description": "Vores version af det klassiske spil breakout, lavet i C#. Det er blevet grundigt testet og designet med designmønstre i tankerne."
       },
       "moreProjectsHeader": "Flere Projekter kan findes på linket nedenfor",
       "moreProjectsButtonText": "My Github",

@@ -1,21 +1,26 @@
-import React, { useRef } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Section1 from './pages/Section1';
 import Section2 from './pages/Section2';
 import History from './pages/History';
 import MyProjects from './pages/Projects';
-
-
-
+import Poetry from './pages/Poetry';
 
 function App() {
-  const aboutSection = useRef<HTMLDivElement>(null);
   return (
-    <>
-      <Section1 ref={aboutSection} />
-      <Section2 ref={aboutSection} />
-      <History />
-      <MyProjects />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/Poetry" element={<Poetry />} />
+        <Route path="/" element={
+          <>
+            <Section1 />
+            <Section2 />
+            <History />
+            <MyProjects />
+          </>
+        } />
+      </Routes>
+    </Router>
   );
 }
 

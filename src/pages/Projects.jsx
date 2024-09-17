@@ -62,9 +62,9 @@ const MyProjects = () => {
                     {t("projects.project2.description")}
                     <div className='flex items-center justify-center'>
                       <a
-                        href='//'
+                        href='https://github.com/Feros47/Breakout'
                         className='border-2 border-indigo-500 rounded-lg p-3 text-white h-8 px-4 m-2 text-sm inline-flex items-center'
-                      > {t("projects.buttonTextComingSoon")} </a>
+                      > {t("projects.buttonTextUploaded")} </a>
                     </div>
                   </span>
                 </span>
