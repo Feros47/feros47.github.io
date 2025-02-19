@@ -16,11 +16,13 @@
       "hobbiesDescription1": "In my free time, I play and coach ", 
       "hobbiesDescription2": ", work out at the ",
       "hobbiesDescription3": " and play ",
-      "hobbiesDescription4": ". I also love being creative by writing ",
-      "poems": "poems.",
+      "hobbiesDescription4": ". I also love being creative by ",
+      "hobbiesDescription5": " and taking ",
+      "poems": "writing",
       "volleyball": "volleyball",
       "golf": "golf",
       "fitness": "gym",
+      "photography": "photos.",
       "timeline": "My Timeline"
     },
     "history": {
@@ -48,6 +50,77 @@
       },
       "moreProjectsHeader": "More Projects available through the link below",
       "moreProjectsButtonText": "My Github",
-      "githubProfileLink": "https://github.com/feros47"
+      "githubProfileLink": "https://github.com/feros47",
+
+
+      "handbook": {
+        "title": "Team Handbook",
+        "intro": "Welcome to our volleyball team! This handbook provides essential information about our team's values, policies, and procedures."
+      },
+      "expectations": {
+        "title": "Expectations",
+        "players": "For Players",
+        "parents": "For Parents",
+        "coach": "From the Coach",
+        "playersList": {
+          "item1": "Attend all practices and games on time.",
+          "item2": "Show respect to teammates, opponents, and officials.",
+          "item3": "Maintain a positive attitude and strive for improvement."
+        },
+        "parentsList": {
+          "item1": "Encourage and support your child.",
+          "item2": "Communicate any concerns with the coach privately.",
+          "item3": "Promote good sportsmanship from the sidelines."
+        },
+        "coachList": {
+          "item1": "Provide a safe and positive learning environment.",
+          "item2": "Offer constructive feedback to help players grow.",
+          "item3": "Communicate openly with players and parents."
+        }
+      },
+      "strategies": {
+        "title": "Team Strategies",
+        "intro": "Our team employs various strategies to maximize our performance on the court.",
+        "offensive": "Offensive Strategies",
+        "defensive": "Defensive Strategies",
+        "offensiveList": {
+          "item1": "Quick attacks through the middle.",
+          "item2": "Utilizing outside hitters effectively.",
+          "item3": "Implementing combination plays."
+        },
+        "defensiveList": {
+          "item1": "Strong block positioning.",
+          "item2": "Effective back-row defense.",
+          "item3": "Transitioning quickly from defense to offense."
+        }
+      },
+      "fundamentals": {
+        "title": "Volleyball Fundamentals",
+        "intro": "Understanding the fundamentals is crucial for every player.",
+        "serving": "Serving",
+        "servingDesc": "Serving is the act of putting the ball into play. Mastery of different serving techniques can give the team an advantage.",
+        "passing": "Passing",
+        "passingDesc": "Accurate passing is essential for setting up offensive plays. It requires focus and proper technique."
+      },
+
+      "nav": {
+        "home": "Home",
+        "handbook": "Handbook",
+        "expectations": "Expectations",
+        "strategies": "Strategies",
+        "fundamentals": "Fundamentals"
+      },
+
+        "volleyball": {
+          "title": "Welcome to the Volleyball Section",
+          "coach": "Me as a Coach",
+          "player": "Me as a Player"
+        }
+        },
+        "playerHome": {
+          "title": "Player's Corner",
+          "description": "Explore training plans, techniques, and tips to improve your game."
+        }
+      
     }
-  }
+    

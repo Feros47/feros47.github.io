@@ -67,6 +67,12 @@
                     {t("section2.poems")}
                   </a>
                 </span>
+                {t("section2.hobbiesDescription5")}
+                <span className='text-orange-500 dark:text-orange-300 hover:underline'>
+                  <a href='/photography'>
+                    {t("section2.photography")}
+                  </a>
+                  </span>
               </p>
             </div>
           </div>
