@@ -22,7 +22,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/Poetry" element={<Poetry />} />
-        <Route path="/Privacy" element={<Privacy/>} />
+        <Route path="/Privacy" element={<Privacy/>}/>
         <Route path="/Volleyball" element={<Volleyball />} />
         <Route path="/Volleyball/Coach/" element={<CoachLayout><CoachHome /></CoachLayout>}>
           <Route path="Handbook" element={<CoachLayout><Handbook /></CoachLayout> }/>
