@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "name": "Cozy Garden · gentle onboarding",
+  "startingBalance": 20,
+  "clickIncomePerSecond": 0.5,
+  "horizonSeconds": 1800,
+  "strategy": "best-payback",
+  "maxPurchases": 1000,
+  "generators": [
+    { "id": "seed-bed", "name": "Seed bed", "baseCost": 20, "costGrowth": 1.16, "incomePerSecond": 0.5, "owned": 0, "maxOwned": 150, "enabled": true },
+    { "id": "orchard", "name": "Orchard", "baseCost": 160, "costGrowth": 1.18, "incomePerSecond": 3, "owned": 0, "maxOwned": 100, "enabled": true },
+    { "id": "greenhouse", "name": "Greenhouse", "baseCost": 1400, "costGrowth": 1.2, "incomePerSecond": 25, "owned": 0, "maxOwned": 60, "enabled": true }
+  ],
+  "milestones": [100, 1000, 10000]
+}

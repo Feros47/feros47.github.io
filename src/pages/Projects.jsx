@@ -47,6 +47,15 @@ const MyProjects = () => {
           <h2 className='text-center text-[32px] font-black pb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400'>
             {t("projects.information")}
           </h2>
+          <article className='max-w-xl mx-auto mt-8 p-6 border border-teal-500 rounded-lg text-gray-100'>
+            <h3 className='text-xl font-bold mb-3'>Idle economy pacing example</h3>
+            <p className='leading-6 mb-4'>
+              A free worked example of how one generator-cost change moves a production milestone past a chosen five-minute budget. Download both scenarios and compare them in the browser.
+            </p>
+            <a href='/idle-economy-workbench/' className='inline-flex items-center px-4 py-3 border border-teal-400 rounded-lg text-teal-200 underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4'>
+              Read the free pacing tutorial
+            </a>
+          </article>
         </div>
       </section>
       <section className='bg-gray-900 overflow-hidden'>
