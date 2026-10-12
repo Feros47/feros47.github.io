@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reproduce an idle-game pacing regression: one cost-growth change moves a 1,000-coin production milestone from 293.8 to 312 seconds. Free examples and browser walkthrough.">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#f5f3eb">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+  <title>One cost change, one missed pacing budget · Idle Economy Workbench</title>
+  <style>
+    :root { color-scheme: light; --paper: #f5f3eb; --surface: #fffef9; --ink: #1c3637; --muted: #526664; --teal: #176c63; --line: #d3dad0; --sage: #e5eee2; --orange: #a44c24; --orange-bg: #f7e8db; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    a { color: var(--teal); text-underline-offset: .2em; }
+    a:hover { color: #0c4e46; }
+    a:focus-visible, summary:focus-visible, .table-wrap:focus-visible { outline: 3px solid #ab632d; outline-offset: 5px; }
+    .skip { position: absolute; top: -100px; left: 20px; padding: 12px 20px; background: var(--ink); color: white; z-index: 3; }
+    .skip:focus { top: 12px; }
+    .wrap { width: min(1080px, calc(100% - 48px)); margin-inline: auto; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 94px; border-bottom: 1px solid var(--line); }
+    .brand { color: var(--ink); text-decoration: none; font-weight: 700; letter-spacing: -.02em; }
+    .brand span { display: block; font-weight: 400; font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+    header nav { display: flex; flex-wrap: wrap; gap: 20px; font-size: 13px; }
+    .eyebrow { color: var(--teal); font-size: 11px; letter-spacing: .13em; text-transform: uppercase; font-weight: 650; margin: 0 0 15px; }
+    .hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 55px; padding-block: 62px 44px; align-items: start; }
+    h1 { font-size: clamp(36px, 5.4vw, 59px); line-height: 1.1; letter-spacing: -.055em; margin: 0 0 24px; max-width: 670px; }
+    h1 em, h2 em { font-family: Georgia, serif; font-weight: 400; }
+    h2 { font-size: clamp(26px, 3vw, 35px); line-height: 1.2; letter-spacing: -.035em; margin: 0 0 20px; }
+    h3 { font-size: 19px; line-height: 1.35; margin: 0 0 12px; }
+    p { margin: 0 0 17px; }
+    .lede { color: var(--muted); font-size: 18px; max-width: 660px; }
+    .hero-note { color: var(--muted); font-size: 13px; margin-top: 23px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 27px; }
+    .result-card { margin-top: 9px; }
+    .result-card h2 { font-size: 22px; letter-spacing: -.025em; }
+    .result { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-block: 15px; border-bottom: 1px solid var(--line); }
+    .result:last-of-type { border-bottom: 0; }
+    .result strong { display: block; font-size: 30px; line-height: 1.35; font-variant-numeric: tabular-nums; font-weight: 550; letter-spacing: -.04em; }
+    .result small { color: var(--muted); }
+    .badge { white-space: nowrap; font-weight: 650; font-size: 12px; padding: 6px 9px; border-radius: 5px; background: var(--sage); color: #24542e; }
+    .badge.fail { background: var(--orange-bg); color: var(--orange); }
+    .tiny { font-size: 12px; color: var(--muted); }
+    .result-card .tiny { margin: 15px 0 0; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-block: 23px 0; }
+    .button { display: inline-block; background: var(--teal); color: #fff; padding: 12px 17px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 600; }
+    .button:hover { background: #0e554d; color: #fff; }
+    .button.secondary { background: transparent; color: var(--teal); border: 1px solid #a4bbb0; }
+    .scope { border-block: 1px solid var(--line); padding-block: 17px; margin-bottom: 48px; color: var(--muted); font-size: 13px; }
+    .scope strong { color: var(--ink); margin-right: 12px; }
+    article { padding-bottom: 54px; }
+    .section { margin-bottom: 48px; }
+    .text-width { max-width: 800px; }
+    code { font-family: ui-monospace, Consolas, monospace; font-size: .88em; overflow-wrap: anywhere; }
+    .formula { padding: 15px 19px; border-left: 3px solid var(--teal); background: #e9eee3; margin-block: 21px; }
+    .formula code { display: block; }
+    .table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; margin-block: 23px; }
+    table { width: 100%; border-collapse: collapse; min-width: 630px; text-align: left; font-size: 14px; }
+    caption { text-align: left; padding: 17px 20px; font-weight: 650; color: var(--ink); }
+    th, td { padding: 13px 20px; border-top: 1px solid var(--line); vertical-align: top; }
+    thead th { font-size: 12px; color: var(--muted); background: #edf0e7; font-weight: 600; }
+    tbody th { font-weight: 600; }
+    .number { font-variant-numeric: tabular-nums; }
+    .callout { border-left: 3px solid #ac7442; background: #eee9dd; padding: 20px 24px; margin-block: 25px; }
+    .callout p:last-child { margin-bottom: 0; }
+    .steps { padding-left: 23px; max-width: 820px; }
+    .steps li { margin-bottom: 15px; padding-left: 8px; }
+    .downloads { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-block: 24px; }
+    .downloads p { font-size: 14px; color: var(--muted); }
+    .downloads a { font-weight: 650; font-size: 15px; }
+    details { margin-top: 20px; border: 1px solid var(--line); padding: 15px 20px; border-radius: 8px; }
+    summary { color: var(--teal); cursor: pointer; font-weight: 600; font-size: 14px; }
+    details p { font-size: 13px; margin: 15px 0 0; }
+    .limits { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding-top: 27px; border-top: 1px solid var(--line); }
+    .limits p { font-size: 14px; color: var(--muted); }
+    .optional { margin-top: 43px; padding: 23px 26px; background: #e9eee3; border-radius: 10px; }
+    .optional h2 { font-size: 22px; margin-bottom: 12px; }
+    .optional p { font-size: 14px; margin-bottom: 0; }
+    footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; border-top: 1px solid var(--line); padding-block: 25px 35px; font-size: 12px; color: var(--muted); }
+    @media (max-width: 780px) { .hero { grid-template-columns: 1fr; gap: 25px; padding-top: 40px; } .result-card { margin: 0; } .limits { grid-template-columns: 1fr; gap: 15px; } .scope { margin-bottom: 36px; } }
+    @media (max-width: 480px) { .wrap { width: calc(100% - 32px); } header { min-height: 90px; align-items: flex-start; padding-block: 20px; gap: 16px; } header nav { display: block; font-size: 12px; } header nav a { display: block; margin-bottom: 4px; } .downloads { grid-template-columns: 1fr; } .card { padding: 22px; } .section { margin-bottom: 38px; } h1 { font-size: 39px; } .lede { font-size: 16px; } }
+    @media print { body { background: #fff; } .wrap { width: 100%; } header nav, .actions { display: none; } .hero { padding-top: 25px; } .card, .table-wrap, .callout { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to tutorial</a>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/">Aeternum<span>Developer field notes</span></a>
+      <nav aria-label="Tutorial resources">
+        <a href="https://github.com/Feros47/Feros47/tree/main/idle-economy-pacing-examples">Free examples on GitHub</a>
+        <a href="https://idle-economy-workbench.feros47.chatgpt.site/demo/index.html">Browser demo</a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Idle economy pacing / A reproducible example</p>
+          <h1 id="page-title">One cost change.<br><em>One missed budget.</em></h1>
+          <p class="lede">Changing a seed bed's cost-growth factor from 1.16 to 1.20 moves the 1,000-coin production milestone from about 293.8 seconds to 312 seconds. Here is the purchase decision behind that shift.</p>
+          <div class="actions">
+            <a class="button" href="#try">Reproduce it free</a>
+            <a class="button secondary" href="#why">Read the numbers</a>
+          </div>
+          <p class="hero-note">Original hypothetical economies. No player data, account or purchase is needed for the browser walkthrough.</p>
+        </div>
+        <aside class="card result-card" aria-labelledby="budget-title">
+          <p class="eyebrow">The chosen check</p>
+          <h2 id="budget-title">Earn 1,000 coins<br>within 300 seconds.</h2>
+          <div class="result"><div><small>Baseline · growth 1.16</small><strong>293.8 s</strong></div><span class="badge">Pass</span></div>
+          <div class="result"><div><small>Candidate · growth 1.20</small><strong>312 s</strong></div><span class="badge fail">Fail · 12 s late</span></div>
+          <p class="tiny">The 300-second deadline is a tutorial choice. It is not a recommended target for every game.</p>
+        </aside>
+      </section>
+      <p class="scope"><strong>Model scope</strong>One currency · Exponential costs · Constant per-unit income · A stated greedy purchase policy</p>
+      <article aria-label="Cost growth tutorial">
+        <section class="section" id="why" aria-labelledby="why-title">
+          <p class="eyebrow">01 / Isolate the change</p>
+          <h2 id="why-title">Higher costs also change<br><em>which purchase comes next.</em></h2>
+          <div class="text-width">
+            <p>The baseline is the original Cozy Garden example. Its candidate changes only <code>generators[0].costGrowth</code>, from <strong>1.16</strong> to <strong>1.20</strong>. Both start with 20 coins, 0.5 coins per second of base income, no owned units, and a 1,800-second horizon. All generator income, caps, milestones and other inputs remain identical.</p>
+            <p>The seed bed has a base cost of 20 coins and adds 0.5 coins per second per owned unit. Both scenarios use <code>best-payback</code>: choose the available positive-income unit with the smallest next cost divided by its added income, then wait until it is affordable.</p>
+            <div class="formula"><code>next seed-bed cost = 20 × costGrowth<sup>owned</sup></code><code>payback seconds = next unit cost ÷ added income per second</code></div>
+            <p>Both runs buy a seed bed at time zero, a second seed bed shortly afterward, then an orchard. At that point, two seed beds are owned. The next greenhouse costs 1,400 coins and adds 25 coins per second, giving it a 56-second payback ratio.</p>
+          </div>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Next purchase comparison; scroll horizontally on small screens">
+            <table>
+              <caption>After the first orchard: compare the next unit</caption>
+              <thead><tr><th scope="col">Scenario</th><th scope="col">Third seed-bed cost</th><th scope="col">Seed-bed payback</th><th scope="col">Policy selects</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Baseline · 1.16</th><td class="number">20 × 1.16² = 26.912</td><td class="number">26.912 ÷ 0.5 = 53.824 s</td><td>Seed bed, before the greenhouse</td></tr>
+                <tr><th scope="row">Candidate · 1.20</th><td class="number">20 × 1.20² = 28.8</td><td class="number">28.8 ÷ 0.5 = 57.6 s</td><td>Greenhouse, with 56 s payback</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout text-width"><p><strong>The candidate waits for the greenhouse.</strong> The policy does not filter its choices to units affordable right now. The baseline buys another seed bed at about 135.85 seconds, raising income to 5 coins per second. The candidate remains at 4.5 coins per second until its greenhouse purchase at about 441.78 seconds. That difference matters before the 1,000-coin milestone.</p></div>
+        </section>
+        <section class="section" aria-labelledby="measure-title">
+          <p class="eyebrow">02 / Measure the consequence</p>
+          <h2 id="measure-title">The same deadline.<br><em>Two reproducible results.</em></h2>
+          <div class="text-width"><p>Milestones count cumulative production earned during the run. They exclude starting cash and do not subtract spending. Reaching 1,000 earned coins does not mean there are 1,000 spendable coins in the wallet.</p></div>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Measured milestone results; scroll horizontally on small screens">
+            <table>
+              <caption>1,000 earned coins under the same best-payback policy</caption>
+              <thead><tr><th scope="col">Scenario</th><th scope="col">Measured crossing time</th><th scope="col">300-second budget</th><th scope="col">CLI budget exit</th></tr></thead>
+              <tbody><tr><th scope="row">Baseline</th><td class="number">293.8247111111111 s</td><td>Pass</td><td>0</td></tr><tr><th scope="row">Candidate</th><td class="number">312 s</td><td>Fail</td><td>2</td></tr></tbody>
+            </table>
+          </div>
+          <p class="text-width">The edit delays the modeled milestone by about <strong>18.1753 seconds</strong>. This is a consequence of these particular parameters and this policy. A different strategy or economy can yield a different result.</p>
+          <details class="text-width"><summary>Check the milestone arithmetic</summary><p>After its third seed bed, the baseline has earned 210.112 coins at time 135.84711111111113 seconds and produces 5 coins per second. Its crossing time is <code>135.84711111111113 + (1000 − 210.112) ÷ 5</code>.</p><p>After its first orchard, the candidate has earned 184 coins at time 130.66666666666669 seconds and produces 4.5 coins per second. Its crossing time is <code>130.66666666666669 + (1000 − 184) ÷ 4.5 = 312</code>. Neither run buys a greenhouse before reaching this milestone.</p></details>
+        </section>
+        <section class="section" id="try" aria-labelledby="try-title">
+          <p class="eyebrow">03 / Try the example</p>
+          <h2 id="try-title">Import. Pin. Compare.</h2>
+          <div class="downloads">
+            <div class="card"><h3>Start with the baseline</h3><p>Original Cozy Garden. Cost growth: 1.16.</p><a href="examples/baseline.json" download="baseline.json">Download baseline.json</a></div>
+            <div class="card"><h3>Change one value</h3><p>Same scenario. Seed-bed cost growth: 1.20.</p><a href="examples/candidate-cost-growth.json" download="candidate-cost-growth.json">Download candidate-cost-growth.json</a></div>
+          </div>
+          <ol class="steps">
+            <li>Save both JSON files and open the <a href="https://idle-economy-workbench.feros47.chatgpt.site/demo/index.html">free browser demo</a>.</li>
+            <li>Choose <strong>Import JSON</strong> and load <code>baseline.json</code>. Run the simulation and inspect the 1,000-coin production milestone. Choose <strong>Pin current</strong> to retain this result as your baseline.</li>
+            <li>Import <code>candidate-cost-growth.json</code> and run again. The pinned baseline remains visible. Compare milestone timing and the purchase timeline, especially the next purchase after the orchard.</li>
+            <li>Change one input at a time when continuing the experiment. Export your scenario if you want to keep it; the pinned comparison resets when the page closes.</li>
+          </ol>
+          <p class="text-width">Both JSON files retain the same scenario name so that their only data difference is the cost-growth factor. The files and their concise walkthrough are also available in the <a href="https://github.com/Feros47/Feros47/tree/main/idle-economy-pacing-examples">free GitHub companion</a>, under an MIT license.</p>
+        </section>
+        <section class="limits" aria-labelledby="limits-title">
+          <div><h2 id="limits-title">Keep the question narrow.</h2><p>This example asks whether a stated model produces an amount by a deadline. It does not determine a desirable session length or establish that a game is fun.</p></div>
+          <div><p><strong>Greedy strategies are assumptions.</strong> Best payback and lowest cost each choose a target and wait. Neither searches all purchase sequences or predicts player behavior.</p><p><strong>Unsupported mechanics need another model.</strong> Prestige, prerequisites, multiple currencies, variable clicking sessions and random rewards are outside this release. Production is continuous; arithmetic uses floating-point numbers. Watch purchase caps and stopping reasons, then use playtesting to assess the experience.</p></div>
+        </section>
+        <aside class="optional" aria-labelledby="automation-title"><h2 id="automation-title">Optional: keep the deadline in your build.</h2><p>The <a href="https://idle-economy-workbench.feros47.chatgpt.site/#bundle">149 DKK developer kit</a> adds the ready CLI and reusable engine source for local automation. With that downloaded kit and Node.js 20 or newer, <code>--max-milestone-seconds 1000:300</code> makes the baseline pass and the candidate exit with code 2. The free demo supplies the same browser inspection features; purchase is optional for this tutorial. A maximum-time check can also pass when progress is faster than intended.</p></aside>
+      </article>
+    </main>
+    <footer><span>Aeternum · An original, hypothetical worked example</span><a href="https://github.com/Feros47/Feros47/tree/main/idle-economy-pacing-examples">JSON files and browser walkthrough on GitHub</a></footer>
+  </div>
+</body>
+</html>
